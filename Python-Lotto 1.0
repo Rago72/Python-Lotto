@@ -1,0 +1,20 @@
+import random
+
+print("-" * 40, " LOTTO ", "-" * 40, "\n")
+
+your_nums = [int(x) for x in input("Enter 7 numbers from 1 to 100 : ").split()]
+money = 10
+lotto_nums = random.sample(range(1, 100), 7)
+guessed = [x for x in your_nums if x in lotto_nums]
+for i in guessed:
+    money *= 10
+if 0 < len(guessed) < 8:
+    print("You won", money, "euros")
+    print("\n", "Your numbers :", your_nums, "\n", "Lotto numbers :", lotto_nums, "\n", "Guessed : ", guessed)
+elif not (len(your_nums) == 7):
+    print("Error", "\n", "You need to enter 7 numbers between 1 and 100")
+else:
+    print("\n", "Your numbers :", your_nums, "\n", "Lotto numbers :", lotto_nums, "\n", "Guessed : ", guessed)
+    print("Non guessed, better luck next time")
+
+print("\n", "-" * 40, " PYTHON ", "-" * 40)
